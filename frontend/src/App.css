@@ -1,34 +1,297 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Custom Colors */
+:root {
+  --navy-900: #0a1628;
+  --navy-800: #0f1f3a;
+  --navy-950: #050b14;
+  --gold-400: #fbbf24;
+  --gold-500: #f59e0b;
+  --gold-600: #d97706;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-.App-link {
-    color: #61dafb;
+.App {
+  min-height: 100vh;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+.animate-scroll {
+  animation: scroll 1.5s ease-in-out infinite;
+}
+
+/* Custom Navy Colors */
+.bg-navy-900 {
+  background-color: var(--navy-900);
+}
+
+.bg-navy-800 {
+  background-color: var(--navy-800);
+}
+
+.bg-navy-950 {
+  background-color: var(--navy-950);
+}
+
+.text-navy-900 {
+  color: var(--navy-900);
+}
+
+.text-navy-600 {
+  color: #1e3a5f;
+}
+
+.border-navy-200 {
+  border-color: #e5e9f0;
+}
+
+/* Custom Gold Colors */
+.bg-gold-400 {
+  background-color: var(--gold-400);
+}
+
+.bg-gold-500 {
+  background-color: var(--gold-500);
+}
+
+.bg-gold-100 {
+  background-color: #fef3c7;
+}
+
+.text-gold-400 {
+  color: var(--gold-400);
+}
+
+.text-gold-500 {
+  color: var(--gold-500);
+}
+
+.text-gold-600 {
+  color: var(--gold-600);
+}
+
+.text-gold-700 {
+  color: #b45309;
+}
+
+.border-gold-200 {
+  border-color: #fde68a;
+}
+
+.border-gold-300 {
+  border-color: #fcd34d;
+}
+
+.border-gold-400 {
+  border-color: var(--gold-400);
+}
+
+/* Hover Effects */
+.hover\:bg-gold-500:hover {
+  background-color: var(--gold-500);
+}
+
+.hover\:bg-gold-400:hover {
+  background-color: var(--gold-400);
+}
+
+.hover\:text-gold-400:hover {
+  color: var(--gold-400);
+}
+
+.hover\:text-gold-600:hover {
+  color: var(--gold-600);
+}
+
+.hover\:text-gold-700:hover {
+  color: #b45309;
+}
+
+.hover\:border-gold-300:hover {
+  border-color: #fcd34d;
+}
+
+.hover\:border-gold-400:hover {
+  border-color: var(--gold-400);
+}
+
+/* Gradient from/to utilities */
+.from-navy-900 {
+  --tw-gradient-from: var(--navy-900);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.from-navy-950 {
+  --tw-gradient-from: var(--navy-950);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-navy-800 {
+  --tw-gradient-to: var(--navy-800);
+}
+
+.to-navy-900 {
+  --tw-gradient-to: var(--navy-900);
+}
+
+.to-navy-950 {
+  --tw-gradient-to: var(--navy-950);
+}
+
+.from-gold-50 {
+  --tw-gradient-from: #fffbeb;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-amber-50 {
+  --tw-gradient-to: #fffbeb;
+}
+
+.from-navy-50 {
+  --tw-gradient-from: #f0f4f8;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent);
+}
+
+.to-slate-50 {
+  --tw-gradient-to: #f8fafc;
+}
+
+/* Shadow effects */
+.ring-gold-200 {
+  --tw-ring-color: #fde68a;
+  box-shadow: 0 0 0 3px var(--tw-ring-color);
+}
+
+/* Custom Transitions */
+button, a, .transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Ensure no center alignment */
+.container {
+  text-align: left;
+}
+
+/* Custom backdrop blur */
+.backdrop-blur-lg {
+  backdrop-filter: blur(16px);
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px);
+}
+
+/* Opacity utilities for navy */
+.bg-navy-900\/95 {
+  background-color: rgba(10, 22, 40, 0.95);
+}
+
+.bg-navy-900\/98 {
+  background-color: rgba(10, 22, 40, 0.98);
+}
+
+/* Border opacity utilities */
+.border-gold-400\/20 {
+  border-color: rgba(251, 191, 36, 0.2);
+}
+
+.border-gold-400\/40 {
+  border-color: rgba(251, 191, 36, 0.4);
+}
+
+/* Background opacity utilities */
+.bg-gold-400\/5 {
+  background-color: rgba(251, 191, 36, 0.05);
+}
+
+.bg-white\/5 {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bg-white\/10 {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Text opacity for gold */
+.text-gold-200 {
+  color: #fde68a;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--gold-500);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-600);
 }
